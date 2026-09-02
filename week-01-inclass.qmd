@@ -35,6 +35,21 @@ $$\text{BMI} = \frac{\text{weight in kg}}{(\text{height in meters})^2}$$
 
 ```{r bmi-calculations}
 # Write your calculations below:
+height_a <- 1.75
+height_b <- 1.8
+height_c <- 1.62
+
+weight_a <- 70
+weight_b <- 85
+weight_c <- 58
+
+bmi_a = weight_a / (height_a ^ 2)
+bmi_b = weight_a / (height_b ^ 2)
+bmi_c = weight_a / (height_c ^ 2)
+
+bmi_a
+bmi_b
+bmi_c
 
 ```
 
@@ -44,6 +59,9 @@ Compute the mean of the three BMIs you calculated above. Round the result to 2 d
 
 ```{r bmi-summary}
 # Write your summary code below:
+BMIs <- c(bmi_a, bmi_b, bmi_c)
+mean_bmi <- round(BMIs, 2)
+mean_bmi
 
 ```
 
@@ -55,6 +73,10 @@ Compute the mean of the three BMIs you calculated above. Round the result to 2 d
 
 ```{r r02pro-check}
 # Load library and inspect data:
+library(r02pro)
+
+head(ahp)
+?median
 
 ```
 
@@ -70,7 +92,12 @@ In the space below:
 - Include at least one **bold** phrase and one *italicized* word.
 - Add a bulleted list of two advantages of Quarto over traditional copy-pasting into Word.
 
-*(Type your text response here)*
+The purpose of reproducible research in public health is to **ensure that data analyses, computer code, and study results can be independently verified and rerun by other scientists**. This practice builds *trust, prevents errors in health data*, and *supports reliable policies that protect community health*
+
+**Advantages of Quarto**
+
+- Code results and data visualization refresh automatically whenever your source data changes
+- Document styling applies globally through templates instead of tedious manual adjustments
 
 ## Code Chunk Customization
 
@@ -79,7 +106,9 @@ Create an R code chunk below with chunk option `#| echo: true` that creates a ve
 ```{r}
 #| echo: true
 # Write your code here:
-
+blood_pressure <- c(120, 134, 118, 142, 128)
+sd_blood <- sd(blood_pressure)
+sd_blood
 ```
 
 ---
@@ -88,9 +117,9 @@ Create an R code chunk below with chunk option `#| echo: true` that creates a ve
 
 Confirm the following steps with your partner:
 
-- [ ] You have initialized Git in your local R project.
-- [ ] You have configured your Git identity in RStudio (`git config --global user.name` and `user.email`).
-- [ ] You rendered this `.qmd` document to `.html` without any errors.
+- [X] You have initialized Git in your local R project.
+- [X] You have configured your Git identity in RStudio (`git config --global user.name` and `user.email`).
+- [X] You rendered this `.qmd` document to `.html` without any errors.
 
 ---
 
@@ -113,14 +142,14 @@ area <- 3.14 * (radius * 2)
 
 ```{r corrected-code}
 # Corrected code:
-
+area <- pi * (radius ^ 2)
 ```
 
 ---
 
 ## Submission Checklist
 
-- [ ] Both your name and your partner's name are in the `author` field at the top.
-- [ ] Click **Render** in RStudio and verify the HTML looks clean.
-- [ ] Commit and push your changes to GitHub.
+- [X] Both your name and your partner's name are in the `author` field at the top.
+- [X] Click **Render** in RStudio and verify the HTML looks clean.
+- [X] Commit and push your changes to GitHub.
 
