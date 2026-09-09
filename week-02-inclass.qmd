@@ -53,8 +53,8 @@ A study recorded the HIV viral load copies/mL for 8 participants:
 
 ```{r viral-load}
 # Calculate undetectable proportion:
-viral_load -> c(1200, 450, 0, 8900, 320, 0, 1500, 60)
-mean(viral_load)
+viral_load <- c(1200, 450, 0, 8900, 320, 0, 1500, 60)
+mean(viral_load == 0)
 ```
 
 
@@ -70,6 +70,7 @@ Create a sequence named `dose_hours` starting at hour 0 up to hour 72 with incre
 
 ```{r dose-seq}
 # Create dosage hours:
+dose_hours <- seq(from = 0, to = 72, by = 8)
 
 ```
 
