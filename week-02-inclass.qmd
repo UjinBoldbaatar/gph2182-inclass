@@ -71,6 +71,7 @@ Create a sequence named `dose_hours` starting at hour 0 up to hour 72 with incre
 ```{r dose-seq}
 # Create dosage hours:
 dose_hours <- seq(from = 0, to = 72, by = 8)
+dose_hours
 
 ```
 
@@ -85,7 +86,8 @@ Generate this character vector using the `rep()` function and assign it to `trea
 
 ```{r treatment-rep}
 # Generate treatment labels:
-
+treatment_groups <- rep(c("Control", "Low-Dose", "High-Dose"), times = 4)
+treatment_groups
 ```
 
 ## Extracting Multiples with Modulo `%%`
@@ -94,8 +96,8 @@ Given the sequence `numbers <- 1:50`, extract all numbers that are divisible by 
 
 ```{r modulo-filter}
 numbers <- 1:50
-# Extract multiples of 7:
-
+# Extract multiples of 7
+numbers[numbers %% 7 == 0]
 ```
 
 ---
@@ -115,11 +117,12 @@ A metabolic health study collected fasting blood glucose levels (mg/dL) from 8 p
 glucose <- c(95, 142, 180, 88, 210, 115, -1, 104)
 
 # 1. Pre-diabetes subset:
+glucose[100 < glucose & glucose <125]
 
 # 2. In-place replacement of negative values with NA:
-
+glucose[glucose == -1] <- NA
 # 3. Diabetes subset (>= 126, non-NA):
-
+glucose[glucose >= 126 & !is.na(glucose)]
 ```
 
 ---
@@ -138,9 +141,9 @@ A clinic recorded wait times (minutes) for 5 emergency room patients:
 wait_times <- c(45, 12, 85, 30, 45)
 
 # 1. Descending sort:
-
+sort(wait_times, decreasing = TRUE)
 # 2. First-appearance ranking:
-
+rank(wait_times, ties.method ="first")
 ```
 
 ## AI Corner: Spotting Vector Recycling Errors
@@ -154,6 +157,7 @@ The AI produced this code:
 heights <- c(1.70, 1.85, 1.62, 1.78)
 weights <- c(65, 82)
 bmi_calc <- weights / (heights^2)
+bmi_calc
 ```
 
 ### Questions:
@@ -162,11 +166,12 @@ bmi_calc <- weights / (heights^2)
 2. How would you write a defensive check in R to prevent vector recycling when calculating BMI?
 
 *(Write your explanation and defensive check below)*
-
+1. Different sizes of data on weight and height makes it clinically invalid. Because we need to use given person's weight rather than random person's cycled weight.
+2. Make the vectors in same length
 ---
 
 ## Submission Checklist
 
-- [ ] Both your name and your partner's name are in the `author` field at the top.
-- [ ] Click **Render** in RStudio and verify the HTML compiles cleanly.
-- [ ] Commit and push your changes to your GitHub repository.
+- [X] Both your name and your partner's name are in the `author` field at the top.
+- [X] Click **Render** in RStudio and verify the HTML compiles cleanly.
+- [X] Commit and push your changes to your GitHub repository.
